@@ -1,23 +1,15 @@
 import React from 'react';
 import styles from './ImageGallery.module.css';
 import ImageCard from '../ImageCard/ImageCard';
-import Loader from '../Loader/Loader';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
-const ImageGallery = ({ images, isLoading, isError, onImageClick }) => {
+const ImageGallery = ({ images, onImageClick }) => {
   return (
     <div className={styles.photoPage}>
-      {isLoading && <Loader />}
-      {isError && <ErrorMessage />}
       <ul className={styles.list}>
         {images !== null &&
           images.map(item => {
             return (
-              <li
-                className={styles.listItem}
-                key={item.id}
-                className={styles.listItem}
-              >
+              <li className={styles.listItem} key={item.id}>
                 <ImageCard image={item} onImageClick={onImageClick} />
               </li>
             );
